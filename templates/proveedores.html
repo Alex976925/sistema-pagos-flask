@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🚚 Proveedores</h2>
+
+<form method="post" class="row g-2 mb-4">
+  <div class="col-md-6">
+    <input name="nombre" class="form-control" placeholder="Nombre proveedor" required>
+  </div>
+  <div class="col-md-6">
+    <input name="contacto" class="form-control" placeholder="Contacto" required>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-primary w-100">Registrar</button>
+  </div>
+</form>
+
+<table class="table table-striped table-dark table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pr in proveedores %}
+    <tr>
+      <td>{{ pr.nombre }}</td>
+      <td>{{ pr.contacto }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

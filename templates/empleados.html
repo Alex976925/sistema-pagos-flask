@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>👤 Empleados</h2>
+
+<form method="post" class="row g-2 mb-4">
+  <div class="col-md-6">
+    <input name="nombre" class="form-control" placeholder="Nombre" required>
+  </div>
+  <div class="col-md-6">
+    <input name="apellido" class="form-control" placeholder="Apellido" required>
+  </div>
+  <div class="col-md-6">
+    <input name="numero" class="form-control" placeholder="Número" required>
+  </div>
+  <div class="col-md-6">
+    <input name="correo" type="email" class="form-control" placeholder="Correo" required>
+  </div>
+  <div class="col-md-6">
+    <input name="direccion" class="form-control" placeholder="Dirección" required>
+  </div>
+  <div class="col-md-6">
+    <input name="puesto" class="form-control" placeholder="Puesto" required>
+  </div>
+  <div class="col-md-6">
+    <input name="sueldo" type="number" step="0.01" class="form-control" placeholder="Sueldo" required>
+  </div>
+  <div class="col-md-12">
+    <button class="btn btn-primary w-100">Registrar</button>
+  </div>
+</form>
+
+<table class="table table-striped table-dark table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Número</th>
+      <th>Correo</th>
+      <th>Dirección</th>
+      <th>Puesto</th>
+      <th>Sueldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for e in empleados %}
+    <tr>
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.apellido }}</td>
+      <td>{{ e.numero }}</td>
+      <td>{{ e.correo }}</td>
+      <td>{{ e.direccion }}</td>
+      <td>{{ e.puesto }}</td>
+      <td>${{ e.sueldo }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
